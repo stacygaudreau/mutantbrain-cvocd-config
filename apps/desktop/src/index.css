@@ -1,9 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 @font-face {
     font-family: "Noyh";
@@ -21,41 +20,51 @@
     src: url("./assets/font/noyh_bold-webfont.woff2") format("woff2");
 }
 
-
-// .. color codes
-@theme inline static  {
-    --font-sans: "Roboto", sans-serif;
-    --font-heading: "Noyh", sans-serif;
-    --font-button: "Roboto", sans-serif;
-    --font-display: "Roboto", sans-serif;
-    --color-off-white: #D9D9D9;
-    --color-black: #181818;
-    --color-bg-main: var(--bg-main);
-    --color-bg-panel: #2F3233;
-    --color-mutant-orange: #F06E2F;
-    --color-mutant-green: #77AC8B;
-    --color-mutant-grey: #353C3D;
+@layer base {
+    :root {
+        --color-off-white: 217 217 217;
+        --color-grey: 139 139 139;
+        --color-black: 24 24 24;
+        --color-black-highlight: 64 64 64;
+        --color-bg-main: 41 41 41;
+        --color-bg-panel: 47 50 51;
+        --color-mutant-orange: 240 110 47;
+        --color-mutant-green: 119 172 139;
+        --color-mutant-grey: 53 60 61;
+        --color-mutant-grey-dark: 38 42 42;
+        --color-mutant-grey-highlight: 69 78 80;
+        --color-border-orange: 95 77 69;
+        --color-warning: 215 136 109;
+        --color-success: 119 172 139;
+        --color-error: 215 136 109;
+    }
 }
-
 
 :root {
-  font-family: Roboto, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-
-
-  --bg-main: #294444;
+    font-family: Roboto, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
+h1 {
+    font-family: Noyh-Bold;
+    font-weight: 700;
+}
 
-
-
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Noyh;
+    font-weight: 400;
+}
 
 /* a {
   font-weight: 500;
@@ -67,53 +76,77 @@ a:hover {
 } */
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  /* background-color: var(--bg-main); */
+    margin: 0;
+    min-height: 100vh;
+    background-color: rgb(var(--color-bg-main));
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
 button {
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+    border: none;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: Roboto;
+    text-transform: uppercase;
+    cursor: pointer;
 }
-button:hover {
-  border-color: #646cff;
+button:active {
+    transform: translate(1px, 2px);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:disabled {
+    color: rgb(var(--color-grey));
+    background-color: rgb(var(--color-mutant-grey-dark));
+    img {
+        filter: brightness(80%);
+    }
 }
 
 code {
-  background-color: #1a1a1a;
-  padding: 2px 4px;
-  margin: 0 4px;
-  border-radius: 4px;
+    background-color: #1a1a1a;
+    padding: 2px 4px;
+    margin: 0 4px;
+    border-radius: 4px;
 }
 
 .card {
-  padding: 2em;
+    padding: 2em;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.gradient-vertical-edges-sm {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 35%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 65%,
+        rgba(0, 0, 0, 0.2)
+    );
 }
 
+.gradient-vertical-bottom-sm {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 85%,
+        rgba(0, 0, 0, 0.2)
+    );
+}
 
+.shadow-sm-vert {
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
+.panel-pattern {
+    background-image: linear-gradient(
+            rgba(240, 110, 47, 0.3) 0%,
+            rgba(0, 0, 0, 0) 90%
+        ),
+        url("./assets/img/pattern.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
